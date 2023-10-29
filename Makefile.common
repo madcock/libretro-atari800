@@ -11,6 +11,7 @@ ifeq ($(STATIC_LINKING), 1)
 INCFLAGS += -I$(CORE_DIR)/libretro/include
 endif
 
+ifneq ($(STATIC_LINKING), 1)
 SOURCES_C := \
 	$(LIBRETRO_COMM_DIR)/libco/libco.c \
 	$(LIBRETRO_COMM_DIR)/compat/compat_strl.c \
@@ -23,6 +24,7 @@ SOURCES_C := \
 	$(LIBRETRO_COMM_DIR)/string/stdstring.c \
 	$(LIBRETRO_COMM_DIR)/time/rtime.c \
 	$(LIBRETRO_COMM_DIR)/vfs/vfs_implementation.c
+endif
 
 SOURCES_C += \
 	$(CORE_DIR)/libretro/libretro-core.c \
