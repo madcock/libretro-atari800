@@ -26,6 +26,11 @@ SOURCES_C := \
 	$(LIBRETRO_COMM_DIR)/vfs/vfs_implementation.c
 endif
 
+ifneq (,$(findstring sf2000,$(platform)))
+SOURCES_C += \
+	$(LIBRETRO_COMM_DIR)/streams/memory_stream.c
+endif
+
 SOURCES_C += \
 	$(CORE_DIR)/libretro/libretro-core.c \
 	$(CORE_DIR)/libretro/core-mapper.c \
