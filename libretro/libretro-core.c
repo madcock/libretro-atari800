@@ -1047,7 +1047,11 @@ void retro_init(void)
 
     log_cb(RETRO_LOG_INFO, "Retro SYSTEM_DIRECTORY %s\n", retro_system_directory);
     log_cb(RETRO_LOG_INFO, "Retro SAVE_DIRECTORY %s\n", retro_save_directory);
+#if !defined(SF2000)
     log_cb(RETRO_LOG_INFO, "Retro CONTENT_DIRECTORY %s\n", retro_content_directory);
+#else
+    // retro_content_directory is NULL!
+#endif
 
 #ifndef RENDER16B
     enum retro_pixel_format fmt = RETRO_PIXEL_FORMAT_XRGB8888;
